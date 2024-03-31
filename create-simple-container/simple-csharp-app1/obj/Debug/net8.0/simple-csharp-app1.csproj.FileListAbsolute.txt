@@ -1,0 +1,15 @@
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/simple-csharp-app1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/simple-csharp-app1.AssemblyInfoInputs.cache
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/simple-csharp-app1.AssemblyInfo.cs
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/simple-csharp-app1.csproj.CoreCompileInputs.cache
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/simple-csharp-app1.sourcelink.json
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/bin/Debug/net8.0/simple-csharp-app1
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/bin/Debug/net8.0/simple-csharp-app1.deps.json
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/bin/Debug/net8.0/simple-csharp-app1.runtimeconfig.json
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/bin/Debug/net8.0/simple-csharp-app1.dll
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/bin/Debug/net8.0/simple-csharp-app1.pdb
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/simple-csharp-app1.dll
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/refint/simple-csharp-app1.dll
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/simple-csharp-app1.pdb
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/simple-csharp-app1.genruntimeconfig.cache
+/Users/yoichiikegawa/Documents/Github/docker-k8s/create-simple-container/simple-csharp-app1/obj/Debug/net8.0/ref/simple-csharp-app1.dll
