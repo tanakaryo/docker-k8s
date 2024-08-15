@@ -1,0 +1,119 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: share-doc
+  namespace: k8s-communication
+data:
+  index.html: |
+    Hello World!
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-conf
+  namespace: k8s-communication
+data:
+  default.conf: |
+    server {
+        listen       80;
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+  socket.conf: |
+    server {
+        listen       unix:/var/sock/nginx.sock;
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+  namespace: k8s-communication
+  labels:
+    app: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - name: share-files
+          mountPath: /usr/share/nginx/html
+        - name: socket-dir
+          mountPath: /var/sock
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d
+      - name: shell
+        image: centos
+        command:
+        - /bin/sh
+        - "-c"
+        - "-"
+        args:
+        - "while :; do if dnf install -y nc; then break ; fi ; done ; while :; do sleep 1000; done"
+        volumeMounts:
+        - name: socket-dir
+          mountPath: /var/sock
+      volumes:
+      - name: share-files
+        configMap:
+          name: share-doc
+          items:
+          - key: index.html
+            path: index.html
+      - name: socket-dir
+        emptyDir: {}
+      - name: nginx-config
+        configMap:
+          name: nginx-conf
+          items:
+          - key: default.conf
+            path: default.conf
+          - key: socket.conf
+            path: socket.conf
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  namespace: k8s-communication
+spec:
+  containers:
+  - name: shell
+    image: centos
+    command:
+    - /bin/sh
+    - "-c"
+    - "-"
+    args:
+    - "while :; do sleep 1000; done"
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-namespace
+  namespace: k8s-communication-sub
+spec:
+  containers:
+  - name: shell
+    image: centos
+    command:
+    - /bin/sh
+    - "-c"
+    - "-"
+    args:
+    - "while :; do sleep 1000; done"
