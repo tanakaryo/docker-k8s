@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mc2
+  namespace: k8s-test
+spec:
+  containers:
+  - name: 1st
+    image: allingeek/ch6_ipc:latest
+    command: ["./ipc", "-producer"]
+    imagePullPolicy: IfNotPresent
+  - name: 2nd
+    image: allingeek/ch6_ipc:latest
+    command: ["./ipc", "-consumer"]
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Never
