@@ -1,0 +1,17 @@
+version: "3"
+services:
+  envoy:
+    container_name: envoy
+    hostname: envoy
+    image: envoyproxy/envoy:v1.31-latest
+    ports:
+      - "9901:9901"
+      - "9000:9000"
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
+
+  clickhouse:
+    container_name: clickhouse
+    hostname: clickhouse
+    image: clickhouse/clickhouse-server:latest
+    restart: always
